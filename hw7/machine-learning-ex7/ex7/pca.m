@@ -20,8 +20,13 @@ S = zeros(n);
 %       number of examples).
 %
 
+% recall the PCA alg. flow
+% 1. Preprocessing, 2. Calculate sigma (covariance matrix) 
+% 3. Calculate eigenvectors with svd, 4. Take k vectors from U (Ureduce= U(:,1:k);) 
+% 5. Calculate z (z =Ureduce' * x;)
 
-
+cov_mat = 1/m * (X' * X);
+[U, S, V] = svd(cov_mat);
 
 
 

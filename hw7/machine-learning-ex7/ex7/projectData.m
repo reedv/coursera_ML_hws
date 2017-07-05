@@ -18,6 +18,24 @@ Z = zeros(size(X, 1), K);
 %                    projection_k = x' * U(:, k);
 %
 
+% recall the PCA alg. flow
+% 1. Preprocessing, 2. Calculate sigma (covariance matrix) 
+% 3. Calculate eigenvectors with svd, 4. Take k vectors from U (Ureduce= U(:,1:k);) 
+% 5. Calculate z (z = Ureduce' * x;)
+
+% for each sample
+for i = 1:size(X, 1)
+    sample_vect_x = X(i, :)';
+    
+    % translate the features into the new coordinate sys. defined by the k eigenvectors
+    for j = 1:K
+        eigen_vect_j = U(:, j);
+        
+        projection_k_value = sample_vect_x' * eigen_vect_j;
+        
+        Z(i, j) = projection_k_value;
+    end
+end
 
 
 

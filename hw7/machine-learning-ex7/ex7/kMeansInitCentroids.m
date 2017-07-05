@@ -14,11 +14,11 @@ centroids = zeros(K, size(X, 2));
 %
 
 
+% get random permutation of the indices of the samples
+rand_idx = randperm((size(X, 1)));
 
-
-
-
-
+% take the first k samples as centroids
+centroids = X(rand_idx(1:K), :);
 
 % =============================================================
 

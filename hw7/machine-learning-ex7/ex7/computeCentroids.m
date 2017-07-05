@@ -38,9 +38,9 @@ for i = 1:size(centroids, 1)
     % multiply row-wise to get only samples grouped w/ centroid i, else 0s
     X_c_i = X .* c_i_matrix;
     
-    summed_feaures_row = sum(X_c_i)
+    summed_feaures_row = sum(X_c_i);
     
-    % update values of ith centroid corresponding to each sample dimesion/feature
+    % update values of ith centroid corresponding to each sample dimension/feature
     centroids(i,:) = summed_feaures_row ./ n_i;
 end
 
